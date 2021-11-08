@@ -24,7 +24,7 @@ module "webserver" {
   server_count        = 2
   name                = "web"
   flavor_name         = "1c_1g"
-  ssh_key             = "key"
+  ssh_key             = "${data.bizflycloud_ssh_key.sshkey.name}"
   os_type             = "image"
   os_id               = "${data.bizflycloud_image.this.id}"
   category            = "basic"
