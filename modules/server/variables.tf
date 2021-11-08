@@ -15,7 +15,7 @@ variable "os_type" {
 variable "os_id" {
   description = "(Required) The ID of OS - image ID, snapshot ID or volume rootdisk ID."
 }
-variable "name" {
+variable "server_name" {
   description = "(Required) The Server name."
 }
 variable "flavor_name" {
