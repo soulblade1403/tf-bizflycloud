@@ -8,7 +8,7 @@
 // }
 
 module "webserver" {
-  source = "../modules/server"
+  source = "./modules/server"
   // server_count        = var.server_count
   // server_name         = var.server_name
   // flavor_name         = var.flavor_name
@@ -22,13 +22,13 @@ module "webserver" {
   // root_disk_size      = var.root_disk_size
 
   server_count        = 2
-  name                = "web"
+  server_name         = "web"
   flavor_name         = "1c_1g"
-  ssh_key             = "${data.bizflycloud_ssh_key.sshkey.name}"
+  ssh_key             = "your_ssh_key_name" // change to your ssh key name because bizfly does not support datasource ssh key yet.
   os_type             = "image"
-  os_id               = "${data.bizflycloud_image.this.id}"
+  os_id               = "${data.bizflycloud_image.image.id}"
   category            = "basic"
   availability_zone   = "HCM1"
   root_disk_type      = "SSD"
-  root_disk_size      = "10"
+  root_disk_size      = "50"
 }

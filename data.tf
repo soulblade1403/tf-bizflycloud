@@ -6,7 +6,7 @@ data "bizflycloud_image" "image" {
     // version      = var.os_version
 }
 
-# SSH key
-data "bizflycloud_ssh_key" "sshkey" {
-  name = var.ssh_key
-}
+# # SSH key
+# resource "bizflycloud_ssh_key" "sshkey" {
+#   name = var.ssh_key
+# }
