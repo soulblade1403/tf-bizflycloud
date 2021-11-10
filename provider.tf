@@ -12,6 +12,6 @@ terraform {
 provider "bizflycloud" {
   auth_method                   = "application_credential"
   region_name                   = "HCM"
-  application_credential_id     = ""
-  application_credential_secret = file(./secret)
+  application_credential_id     = "1ed99487958447199f49f0bc42095b21"
+  application_credential_secret = file("./secret")
 }
