@@ -1,13 +1,13 @@
-variable "server_enabled" {
-  description = "Flag to control the server creation."
-  type        = bool
-  default     = true
-}
-variable "server_count" { 
-  description = "Number of servers."
-  type        = number
-  default     = 1
-}
+// variable "server_enabled" {
+//   description = "Flag to control the server creation."
+//   type        = bool
+//   default     = true
+// }
+// variable "server_count" { 
+//   description = "Number of servers."
+//   type        = number
+//   default     = 1
+// }
 variable "os_type" {
   description = "(Required) The type for create server root disk: image, snapshot, rootdisk."
   default = "image"

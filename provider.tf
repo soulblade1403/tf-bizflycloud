@@ -3,15 +3,15 @@ terraform {
   required_providers {
     bizflycloud = {
       source = "bizflycloud/bizflycloud"
-      version = "0.0.9"
+      version = "0.0.10"
     }
   }
 }
 
 # Configure the BizFly Cloud Provider
 provider "bizflycloud" {
-  auth_method                   = "application_credential"
-  region_name                   = "HCM"
-  application_credential_id     = "1ed99487958447199f49f0bc42095b21"
-  application_credential_secret = file("./secret")
+  auth_method                   = var.auth_method
+  region_name                   = var.region_name
+  application_credential_id     = var.app_id
+  application_credential_secret = file(var.app_secret)
 }
