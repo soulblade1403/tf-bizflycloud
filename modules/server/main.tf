@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    bizflycloud = {
-      source = "bizflycloud/bizflycloud"
-      version = "0.0.10"
-    }
-  }
-}
-
 resource "bizflycloud_server" "this" {
   // count               = var.server_enabled == true ? var.server_count : 0
   // name                = format("%s-%s", var.server_name, (count.index ))
