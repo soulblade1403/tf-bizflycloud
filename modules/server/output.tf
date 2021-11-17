@@ -8,9 +8,14 @@ output "server_name" {
   value       = bizflycloud_server.this.name
 }
 
+output "network_ip" {
+  description = "A network IP of servers."
+  value       = tolist(bizflycloud_server.this.wan_ipv4[*])[0]
+}
+
 output "network_ips" {
-  description = "The network IP of servers."
-  value       = bizflycloud_server.this.wan_ipv4
+  description = "The network IPs of servers."
+  value       = bizflycloud_server.this.wan_ipv4[*]
 }
 
 output "server_status" {
