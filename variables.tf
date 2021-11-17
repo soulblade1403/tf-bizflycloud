@@ -31,3 +31,5 @@ variable "ssh_vars_file" {}
 variable "ssh_user" {}
 variable "pub_key" {}
 variable "pvt_key" {}
+variable "inventory_file" {}
+variable "laravel_playbook_file" {}
