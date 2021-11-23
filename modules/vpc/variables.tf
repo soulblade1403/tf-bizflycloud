@@ -1,3 +1,3 @@
-variable vpc_name {}
+variable "vpc_name" {}
 variable description {}
-variable cidr {}
+variable "cidr" {}

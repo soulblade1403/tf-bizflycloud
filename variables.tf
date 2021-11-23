@@ -4,6 +4,11 @@ variable "region_name" { default = "HCM" }
 variable "app_id" {}
 variable "app_secret" {}
 
+# VPC
+variable "vpc_name" {}
+variable "description" {}
+variable "cidr" {}
+
 # Local value
 variable "tag_names" { type = string }
 

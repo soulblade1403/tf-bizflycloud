@@ -1,4 +1,4 @@
-output "server_ids" {
+output "server_id" {
   description = "The ID of servers."
   value       = bizflycloud_server.this.id
 }

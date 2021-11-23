@@ -3,6 +3,14 @@ locals {
   tag_name = var.tag_names
 }
 
+# VPC
+module "vpc" {
+  source      = "../modules/vpc"
+  vpc_name    = var.vpc_name
+  description = var.description
+  cidr        = var.cidr
+}
+
 # Server
 module "webserver" {
   source = "./modules/server"
@@ -18,32 +26,14 @@ module "webserver" {
   root_disk_size      = var.root_disk_size
 }
 
-# generate SSH variables file for Ansible
-resource "local_file" "ssh_vars" {
-  content = templatefile("${path.module}/templates/ssh-vars.yml.tpl",
-  {
-    user         = var.ssh_user
-    pub-key-path = var.pub_key
-  })
- filename = var.ssh_vars_file
-}
-
-# Inventory config for Ansible
-resource "local_file" "inventory_cfg" {
-  content = templatefile("${path.module}/templates/hosts.tpl",
-  {
-    web-ip      = module.webserver[*].network_ip
-    group-hosts = local.tag_name
-    key-path    = var.pvt_key
-  })
- filename = var.inventory_file
-}
-
-# Application playbook for Ansible
-resource "local_file" "playbook" {
-  content = templatefile("${path.module}/templates/laravel-pb.yml.tpl",
-  {
-    host = local.tag_name
-  })
- filename = var.laravel_playbook_file
+# Network Interface
+module "network" {
+  source          = "../modules/network-interface"
+  net_name        = "test-interface"
+  network_id      = module.vpc.vpc_id
+  attached_server = module.webserver.server_id
+  fixed_ip        = "10.10.0.0/22"
+  action          = "attach_server"
+  sg              = ["4b41c931-bf3d-443f-b311-df3817a3fbc0"]
+  # server_id       = module.webserver.server_id
 }
