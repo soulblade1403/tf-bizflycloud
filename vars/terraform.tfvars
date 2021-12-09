@@ -2,7 +2,7 @@
 auth_method = "application_credential"
 region_name = "HCM"
 app_id      = ""
-app_secret  = "./secret"
+app_secret  = "./.secret"
 
 # VPC
 vpc_name    = "test-vpc"
