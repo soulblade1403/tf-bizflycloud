@@ -10,9 +10,9 @@ variable "attached_server" {
     description = "(Optional) The attached server of network interface."
 }
 
-variable "fixed_ip" {
-    description = "(Optional) The fixed IP of network interface."
-}
+# variable "fixed_ip" {
+#     description = "(Optional) The fixed IP of network interface."
+# }
 
 variable "action" {
     description = "(Optional) The action of network interface: attach_server, detach_server, add_firewall, remove_firewall."
