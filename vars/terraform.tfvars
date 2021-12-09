@@ -1,7 +1,7 @@
 # Provider
 auth_method = "application_credential"
 region_name = "HCM"
-app_id      = "1ed99487958447199f49f0bc42095b21"
+app_id      = ""
 app_secret  = "./secret"
 
 # VPC
@@ -13,7 +13,7 @@ cidr        = "10.30.0.0/20"
 tag_names = "demo"
 
 # Server
-server_count        = 1
+server_count        = 2
 flavor_name         = "1c_1g"
 ssh_key             = "secomm"
 os_type             = "image"
