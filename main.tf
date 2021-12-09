@@ -5,7 +5,7 @@ locals {
 
 # VPC
 module "vpc" {
-  source      = "../modules/vpc"
+  source      = "./modules/vpc"
   vpc_name    = var.vpc_name
   description = var.description
   cidr        = var.cidr
@@ -28,7 +28,7 @@ module "webserver" {
 
 # Network Interface
 module "network" {
-  source          = "../modules/network-interface"
+  source          = "./modules/network-interface"
   count           = length(module.webserver[*].server_id)
   net_name        = "semart-network-${count.index + 1}"
   network_id      = module.vpc.vpc_id
