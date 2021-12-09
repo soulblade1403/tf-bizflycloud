@@ -13,28 +13,28 @@ output "vpc_cidr" {
   value       = bizflycloud_vpc_network.this.cidr
 }
 
-output "subnet" {
-  description = "The subnet of VPC Network"
-  value       = bizflycloud_vpc_network.this.subnets
-}
-
 output "availability_zones" {
   description = "The availability zones of VPC Network"
   value       = bizflycloud_vpc_network.this.availability_zones
 }
 
-##### Fix Output #####
+##### Output Subnet #####
 output "project_id" {
   description = "The project id subnets of VPC Network."
-  value       = "${lookup(bizflycloud_vpc_network.this.subnets[1], "project_id")}"
+  value       = element(bizflycloud_vpc_network.this.subnets, 0)
 }
 
-# output "gateway_ip" {
-#   description = "The IP gateway subnets of VPC Network."
-#   value       = bizflycloud_vpc_network.this.subnets.gateway_ip
-# }
+output "ip_version" {
+  description = "The project id subnets of VPC Network."
+  value       = element(bizflycloud_vpc_network.this.subnets, 1)
+}
 
-# output "allocation_pools" {
-#   description = "The allocation pools subnets of VPC Network."
-#   value       = bizflycloud_vpc_network.this.subnets[allocation_pools]
-# }
+output "gateway_ip" {
+  description = "The IP gateway subnets of VPC Network."
+  value       = element(bizflycloud_vpc_network.this.subnets, 2)
+}
+
+output "allocation_pools" {
+  description = "The allocation pools subnets of VPC Network."
+  value       = element(bizflycloud_vpc_network.this.subnets, 3)
+}

@@ -29,11 +29,9 @@ module "webserver" {
 # Network Interface
 module "network" {
   source          = "../modules/network-interface"
-  net_name        = "test-interface"
+  count           = length(module.webserver[*].server_id)
+  net_name        = "semart-network-${count.index + 1}"
   network_id      = module.vpc.vpc_id
-  attached_server = module.webserver.server_id
-  fixed_ip        = "10.10.0.0/22"
+  attached_server = "${module.webserver[count.index].server_id}"
   action          = "attach_server"
-  sg              = ["4b41c931-bf3d-443f-b311-df3817a3fbc0"]
-  # server_id       = module.webserver.server_id
 }

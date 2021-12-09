@@ -18,6 +18,6 @@ variable "action" {
     description = "(Optional) The action of network interface: attach_server, detach_server, add_firewall, remove_firewall."
 }
 
-variable "sg" {
-    description = "(Optional) The list ID of of security groups."
-}
+# variable "sg" {
+#     description = "(Optional) The list ID of of security groups."
+# }
